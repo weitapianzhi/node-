@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
-var Schema = mongoose.Schema
+mongoose.connect('mongodb://localhost:27017')
+
+
+var Schema = mongoose.Schema;
+
+
 
 var option = new Schema({
 	username:{
@@ -15,7 +20,7 @@ var option = new Schema({
 
 
 
-var User = mongoose.model('mongodb://localhost:27017/User',option)
+var User = mongoose.model('User',option)
 
 var admin = new User({
 	username:"zhangsan",
@@ -24,8 +29,31 @@ var admin = new User({
 
 admin.save()
 	.then((data)=>{
-		console.log("data")
+		
 	})
 	.catch((e) =>{
 		console.log(e)
 	})
+	
+//信息查询
+User.findOne({
+	username:'zhangsan'
+},(e,data)=>{
+	if(e) throw e;
+	console.log(data)
+})
+//删除
+// User.deleteMany({
+// 	username:'zs'
+// },(e,data)=>{
+// 	if(e) throw e;
+// 	console.log("删除成功")
+// })
+
+
+//更新
+// User.findByIdAndUpdate({
+// 	id: ''
+// },(e,data)=>{
+// 	
+// })
