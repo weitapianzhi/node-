@@ -19,3 +19,9 @@ demo6
 
 demo7
 mysql数据库的操作------
+
+demo8
+mongose数据库操作
+
+demo9
+vue项目打包到node服务器中，并输出页面（其中还包括vue请求服务器数据部分）
